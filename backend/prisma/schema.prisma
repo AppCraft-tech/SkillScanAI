@@ -1,0 +1,29 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model InterviewSession {
+  id            String   @id @default(uuid())
+  userName      String?
+  role          String
+  date          String
+  score         String
+  numericScore  Float
+  status        String
+  confidence    Int
+  communication Int
+  technical     Int
+  questions     String
+  answers       String
+  evaluations   String
+  suggestions   String
+  isResumeBased Boolean? @default(false)
+  resumeScore   Int?
+  resumeStatus  String?
+  createdAt     DateTime @default(now())
+}
